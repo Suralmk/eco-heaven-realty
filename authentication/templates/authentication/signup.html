@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign up, Eco Heaven Realty</title>
-    <link rel="shortcut icon" type="image/svg" href="/src/logo-icon.svg" />
+    <!-- <link rel="shortcut icon" type="image/svg" href="{% static 'src//logo-icon.svg'%}" /> -->
     <link rel="stylesheet" href="{% static 'css/signup-style.css' %}" />
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
@@ -18,7 +18,7 @@
       rel="stylesheet"
     />
     <script defer src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-    <script defer src="/script.js"></script>
+    <!-- <script defer src="{%static 'js/script.js' %}"></script> -->
   </head>
   <body>
     <div class="super-full-screen-container">
@@ -41,7 +41,23 @@
                 <span>Create your account</span>
               </p>
             </div>
-            <form action="/" method="post" id="form">
+
+            <div class="" style="width: 100%; height: fit-content;
+            padding: 10px">
+              {% for message in messages %}
+              <p style="
+              text-align: start;
+              color: white;
+              padding: 20px;
+              height: 50px;
+              width: 100%;
+              font-size: 15px;
+              background-color: rgba(255, 0, 0, 0.479);
+              "> {{message}}</p>
+              {% endfor %}
+          </div>
+
+            <form method="post" id="form">
 
               {% csrf_token %}
 
@@ -51,15 +67,18 @@
                   <input
                     type="text"
                     id="fname"
+                    name="first_name"
                     placeholder="Enter your first name"
                   />
                   <p id="errormessage"></p>
                 </div>
+
                 <div class="format last-name">
                   <label for="lname">Last name</label>
                   <input
                     type="text"
                     id="lname"
+                    name="last_name"
                     placeholder="Enter your last name"
                   />
                   <p id="errormessage"></p>
@@ -67,8 +86,20 @@
               </div>
 
               <div class="format email">
+                <label for="email">Username</label>
+                <input type="text"
+                 id="username" 
+                 name="username"
+                 placeholder="Your username" />
+                <p id="errormessage"></p>
+              </div>
+
+              <div class="format email">
                 <label for="emali">Email</label>
-                <input type="email" id="email" placeholder="Enter your email" />
+                <input type="email"
+                 id="email"
+                 name="email"  
+                 placeholder="Enter your email" />
                 <p id="errormessage"></p>
               </div>
 
@@ -78,6 +109,7 @@
                   <input
                     type="password"
                     id="password"
+                    name="password"
                     placeholder="Enter your Password"
                   />
                   <p id="errormessage"></p>
@@ -105,9 +137,12 @@
                   <i class="ri-google-fill"></i>Sign up with Google
                 </button>
               </div>
+
             </form>
+            
+
             <div class="footing">
-              <a href="login.html">Already have an account</a>
+              <a href="">Already have an account</a>
             </div>
           </div>
         </div>
@@ -130,8 +165,7 @@
           text-align: center;
           background: #3f885c;
           font-size: 20px;
-        "
-      >
+        ">
         <i class="ri-copyright-line"></i>&nbsp;Surafel Melaku
       </p>
     </div>

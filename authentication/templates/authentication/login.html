@@ -44,12 +44,12 @@
               {% csrf_token %}
 
               <div class="format email">
-                <label for="emali">Email</label>
+                <label for="emali">Username</label>
                 <input
-                  type="email"
+                  type="text"
                   id="email"
-                  name="email"
-                  placeholder="Enter your email"
+                  name="username"
+                  placeholder=" Enter username"
                 />
                 <p id="errormessage"></p>
               </div>
@@ -133,12 +133,14 @@
                 //   );
                 // }
               </script>
+
               <div class="form-btn">
                 <button type="submit">Log In</button>
                 <button type="submit">
                   <i class="ri-google-fill"></i>Sign In with Google
                 </button>
               </div>
+              
             </form>
             <div class="footing">
               <p href="login.html">

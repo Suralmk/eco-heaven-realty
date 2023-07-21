@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luxury real esate</title>
 
-    <link rel="shortcut icon" type="image/svg" href="/src/logo-icon.svg">
+    <!-- <link rel="shortcut icon" type="image/svg" href="{% static 'src/base/logo-icon.svg'%}"> -->
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
     <script defer src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-    <script src="/script.js" defer></script>
+    <!-- <script src="/script.js" defer></script> -->
 </head>
 <body>
 <div class="full-screen-container"> 
@@ -33,7 +33,7 @@
                 </ul>
             </nav>
             <div class="create-and-login">
-                <button type="submit" href="">Login</button>
+                <button type="menu" href="{{ 'login' }}">Login</button>
                 <button type="submit" id="create-account-btn">Create an account</button>
             </div>
         </div>
@@ -521,7 +521,7 @@
 
         <div class="footer-column-1">
             <ul>
-                <li class="footer-logo"><a href=""><img src="/src/logo-icon.svg" alt="">Eco Heaven Realty</a> </li>
+                <li class="footer-logo"><a href=""><img src="{%static '/src/base/logo-icon.svg'%}" alt="">Eco Heaven Realty</a> </li>
                     <div class="social-links">
                          <ul>
                              <li><a href=""><i class="ri-facebook-circle-fill"></i></a></li>
