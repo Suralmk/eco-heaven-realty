@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up, Eco Heaven Realty</title>
+    <link rel="shortcut icon" type="image/svg" href="/src/logo-icon.svg" />
+    <link rel="stylesheet" href="{% static 'css/signup-style.css' %}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+    <script defer src="/script.js"></script>
+  </head>
+  <body>
+    <div class="super-full-screen-container">
+      <div class="full-screen-container">
+        <div class="signup-wrapper">
+          <div
+            class="signup-left"
+            style="background-image: url('{% static '/src/login-bg-2.jpg' %}')"
+          >
+            <p>
+              Feels Like Home!<br />
+              <span>Eco Heaven Realty</span>
+            </p>
+          </div>
+
+          <div class="signup-right">
+            <div class="signup-title">
+              <p>
+                Welcoe to Eco Heaven Realty<br />
+                <span>Create your account</span>
+              </p>
+            </div>
+            <form action="/" method="post" id="form">
+
+              {% csrf_token %}
+
+              <div class="user-name">
+                <div class="format first-name">
+                  <label for="fname">First name</label>
+                  <input
+                    type="text"
+                    id="fname"
+                    placeholder="Enter your first name"
+                  />
+                  <p id="errormessage"></p>
+                </div>
+                <div class="format last-name">
+                  <label for="lname">Last name</label>
+                  <input
+                    type="text"
+                    id="lname"
+                    placeholder="Enter your last name"
+                  />
+                  <p id="errormessage"></p>
+                </div>
+              </div>
+
+              <div class="format email">
+                <label for="emali">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" />
+                <p id="errormessage"></p>
+              </div>
+
+              <div class="user-password">
+                <div class="format password">
+                  <label for="password">Password</label>
+                  <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your Password"
+                  />
+                  <p id="errormessage"></p>
+                </div>
+
+                <div class="format confirm-password">
+                  <label for="confirm-password">Confirm Password</label>
+                  <input
+                    type="password"
+                    id="confirm-password"
+                    placeholder="Confirm your Password"
+                  />
+                  <p id="errormessage"></p>
+                </div>
+              </div>
+
+              <div class="remember-me">
+                <input type="checkbox" />
+                <span> Remember me </span>
+              </div>
+
+              <div class="form-btn">
+                <button type="submit">Sign up</button>
+                <button type="submit">
+                  <i class="ri-google-fill"></i>Sign up with Google
+                </button>
+              </div>
+            </form>
+            <div class="footing">
+              <a href="login.html">Already have an account</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="super-footer">
+        <ul>
+            <li><a href=""><img src="/src/logo-icon.svg" alt=""></a></li>
+            <li><a href=""><i class="ri-facebook-circle-fill"></i></a></li>
+            <li><a href=""><i class="ri-linkedin-box-fill"></i></a></li>
+            <li><a href=""><i class="ri-twitter-fill"></i></a></li>
+            <li><a href=""><i class="ri-instagram-fill"></i></a></li>
+        </ul>
+        
+    </div> -->
+      <p
+        style="
+          color: white;
+          width: 100%;
+          height: 25px;
+          text-align: center;
+          background: #3f885c;
+          font-size: 20px;
+        "
+      >
+        <i class="ri-copyright-line"></i>&nbsp;Surafel Melaku
+      </p>
+    </div>
+  </body>
+</html>
