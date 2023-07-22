@@ -10,3 +10,5 @@ A Website for a realestae company which is responsive, secured, static, interact
 **Server:** MYSQL , Django
 ![App Screenshot](https://static.djangoproject.com/img/logos/django-logo-positive.png)
 
+# Author
+Surafel Melaku
