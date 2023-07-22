@@ -42,23 +42,28 @@
               </p>
             </div>
 
-            <div class="" style="width: 100%; height: fit-content;
-            padding: 10px">
+            <div
+              class=""
+              style="width: 100%; height: fit-content; padding: 10px"
+            >
               {% for message in messages %}
-              <p style="
-              text-align: start;
-              color: white;
-              padding: 20px;
-              height: 50px;
-              width: 100%;
-              font-size: 15px;
-              background-color: rgba(255, 0, 0, 0.479);
-              "> {{message}}</p>
+              <p
+                style="
+                  text-align: start;
+                  color: white;
+                  padding: 20px;
+                  height: 50px;
+                  width: 100%;
+                  font-size: 15px;
+                  background-color: rgba(255, 0, 0, 0.479);
+                "
+              >
+                {{message}}
+              </p>
               {% endfor %}
-          </div>
+            </div>
 
             <form method="post" id="form">
-
               {% csrf_token %}
 
               <div class="user-name">
@@ -87,19 +92,23 @@
 
               <div class="format email">
                 <label for="email">Username</label>
-                <input type="text"
-                 id="username" 
-                 name="username"
-                 placeholder="Your username" />
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  placeholder="Your username"
+                />
                 <p id="errormessage"></p>
               </div>
 
               <div class="format email">
                 <label for="emali">Email</label>
-                <input type="email"
-                 id="email"
-                 name="email"  
-                 placeholder="Enter your email" />
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Enter your email"
+                />
                 <p id="errormessage"></p>
               </div>
 
@@ -137,9 +146,7 @@
                   <i class="ri-google-fill"></i>Sign up with Google
                 </button>
               </div>
-
             </form>
-            
 
             <div class="footing">
               <a href="">Already have an account</a>
@@ -165,7 +172,8 @@
           text-align: center;
           background: #3f885c;
           font-size: 20px;
-        ">
+        "
+      >
         <i class="ri-copyright-line"></i>&nbsp;Surafel Melaku
       </p>
     </div>

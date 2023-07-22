@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.core.mail import send_mail , EmailMessage
 from django.template.loader import render_to_string
 from django.conf import settings #imported setting to get the sender email EMAIL_HOST_USER
-from django.contrib.auth.models import auth, User
+from django.contrib.auth.models import auth
 
 
 User = get_user_model()
@@ -36,8 +36,6 @@ def logout(request):
     auth_logout(request)
     return redirect('base')
 
-
-
 def send_email( request, subject, email_context, recipient_list):
     """
     Send an email from the sign up page
@@ -48,6 +46,8 @@ def send_email( request, subject, email_context, recipient_list):
             value: the data
         recipient_list: List of email, to send email
     """
+
+    #in order to use this function for sending emails from diffrent aspect, this html_tempate has to be changed
     html_template = 'authentication/email_templates/welcome.html'
     
     html_message = render_to_string(html_template, context=email_context)
@@ -61,8 +61,6 @@ def send_email( request, subject, email_context, recipient_list):
     message.send()
     return render(request, 'authentication/signup.html')
 
-
-
 def signup(request):
     if request.method == 'POST':
         print("someone is trying to register\n")
@@ -73,7 +71,6 @@ def signup(request):
         email = request.POST['email']
         password = request.POST['password']
 
-
         if User.objects.filter(username=username).exists():
             messages.info(request, 'Please check ,Username already exist')
             return redirect("signup")
@@ -81,7 +78,6 @@ def signup(request):
             messages.info(request, 'Email was already Taken !')
             return redirect("signup")
         else:
-
             #send welcome email here before regestering the user
             email_context = {
                 "first_name": first_name
@@ -89,8 +85,7 @@ def signup(request):
             subject = 'Welcome to Eco Heaven Realty'
             user_email = [email]
             send_email(request, subject, email_context, user_email )
-            
-        
+
             user = User.objects.create_user(
                                             username=username,
                                             first_name=first_name,
@@ -102,3 +97,5 @@ def signup(request):
       
     return render(request, 'authentication/signup.html', )
     
+def reset_password(request):
+    return render( request, 'authentication/reset/reset_password.html')
