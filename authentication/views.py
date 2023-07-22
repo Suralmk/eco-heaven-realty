@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout, get_user_model
 from django.contrib import messages
-from django.core.mail import send_mail , EmailMessage
-from django.template.loader import render_to_string
-from django.conf import settings #imported setting to get the sender email EMAIL_HOST_USER
+# from django.core.mail import send_mail , EmailMessage
+# from django.template.loader import render_to_string
+# from django.conf import settings #imported setting to get the sender email EMAIL_HOST_USER
 from django.contrib.auth.models import auth
+from . import helpers
 
 
 User = get_user_model()
@@ -36,30 +37,30 @@ def logout(request):
     auth_logout(request)
     return redirect('base')
 
-def send_email( request, subject, email_context, recipient_list):
-    """
-    Send an email from the sign up page
-        request: responce of the form
-        subject: subject of the email
-        email_context:
-            key: used in the html template for rendering data from the database
-            value: the data
-        recipient_list: List of email, to send email
-    """
+# def send_email( request, subject, email_context, recipient_list):
+#     """
+#     Send an email from the sign up page
+#         request: responce of the form
+#         subject: subject of the email
+#         email_context:
+#             key: used in the html template for rendering data from the database
+#             value: the data
+#         recipient_list: List of email, to send email
+#     """
 
-    #in order to use this function for sending emails from diffrent aspect, this html_tempate has to be changed
-    html_template = 'authentication/email_templates/welcome.html'
+#     #in order to use this function for sending emails for diffrent purpose, this html_tempate has to be changed
+#     html_template = 'authentication/email_templates/welcome.html'
     
-    html_message = render_to_string(html_template, context=email_context)
+#     html_message = render_to_string(html_template, context=email_context)
     
-    email_from = settings.EMAIL_HOST_USER
+#     email_from = settings.EMAIL_HOST_USER
 
-    # send_mail(subject, html_message,email_from, recipient_list, fail_silently=False)
-    message = EmailMessage(subject, html_message,
-                            email_from, recipient_list)
-    message.content_subtype = 'html'
-    message.send()
-    return render(request, 'authentication/signup.html')
+#     # send_mail(subject, html_message,email_from, recipient_list, fail_silently=False)
+#     message = EmailMessage(subject, html_message,
+#                             email_from, recipient_list)
+#     message.content_subtype = 'html'
+#     message.send()
+#     return render(request, 'authentication/signup.html')
 
 def signup(request):
     if request.method == 'POST':
@@ -84,7 +85,7 @@ def signup(request):
             }
             subject = 'Welcome to Eco Heaven Realty'
             user_email = [email]
-            send_email(request, subject, email_context, user_email )
+            helpers.send_welcome_email(request, subject, email_context, user_email )
 
             user = User.objects.create_user(
                                             username=username,
@@ -95,9 +96,19 @@ def signup(request):
             
             return redirect("base")
       
-    return render(request, 'authentication/signup.html', )
-    
+    return render(request, 'authentication/signup.html')
+
+# Password reset
 def password_reset(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        reciver = [email]
+        helpers.forget_password_email_send(request,reciver)
+
     return render( request, 'authentication/reset/reset_password.html')
+
 def email_sent_confirmation(request):
     return render(request, 'authentication/reset/email_sent_confirmation.html')
+
+def create_password(request):
+    return render(request, 'authentication/reset/create_password.html')
