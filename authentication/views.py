@@ -97,5 +97,7 @@ def signup(request):
       
     return render(request, 'authentication/signup.html', )
     
-def reset_password(request):
+def password_reset(request):
     return render( request, 'authentication/reset/reset_password.html')
+def email_sent_confirmation(request):
+    return render(request, 'authentication/reset/email_sent_confirmation.html')

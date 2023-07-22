@@ -69,15 +69,18 @@
                 <input type="checkbox" />
                 <span> Remember me </span>
               </div>
-
-              
               <script>
+                // this form validation is made for email and password
+                //Currently what is being applied is username and password.
+                //email validation should be changed to username validation
+
                 // const email = document.getElementById("email")
                 // const password = document.getElementById("password")
                 // form.addEventListener("submit", (e) => {
                 //   e.preventDefault();
 
                 //   validateInputs();
+                //   return true; 
                 // });
                 // function validateInputs() {
                 //   emailValue = email.value.trim();
@@ -142,9 +145,15 @@
               </div>
               
             </form>
-            <div class="footing">
-              <p href="login.html">
-                Don't have an account? <a href="signup.html">Join here</a>
+            <div class="footing" >
+              <style>
+                .footing a:hover{
+                  text-decoration: underline;
+                }
+              </style>
+              <p style="text-align: center;"><a href='/reset-password'>Forgot Password?</a></p>
+              <p>
+                Don't have an account? <a href="/signup">Join here</a>
               </p>
             </div>
           </div>
