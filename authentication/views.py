@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from django.contrib import messages
 from .models  import *
 from django.contrib.auth.models import auth
-from .helpers import forget_password_email_send, send_welcome_email
+from .helpers import forget_password_email_send, send_welcome_email, get_reset_email
 
 User = get_user_model()
 
@@ -71,6 +71,7 @@ def signup(request):
     return render(request, 'authentication/signup.html')
 
 # Password reset
+import uuid
 def password_reset(request):
         if request.method == 'POST':
                 email = request.POST['email']
@@ -79,9 +80,15 @@ def password_reset(request):
                 if not  User.objects.filter(email = email).first():
                     messages.info(request, "Email not found!")
                     
-                else:
+                else:  
+                    #create a token
+                    token = str(uuid.uuid4())
                     reciver = [email]
-                    forget_password_email_send(reciver)
+                    get_reset_email(email)
+                    #saving the input email to profile table
+                    profile_obj = Profile(forget_password_token = token, reset_email = email)
+                    profile_obj.save()
+                    forget_password_email_send(reciver, token)
                     return redirect('email-sent')
         except Exception as e:
             print(e)
@@ -96,14 +103,37 @@ def email_sent_confirmation(request):
         'email' : key for the value
         reset_email : email of the user eho requested password recovery
     """
-
-    return render(request, 'authentication/reset/email_sent_confirmation.html')
+    
+    user_reset_email = Profile.objects.last()
+    user_reset_email = user_reset_email.reset_email
+    
+    context = {
+         'reset_email' : user_reset_email
+    }
+    return render(request, 'authentication/reset/email_sent_confirmation.html', context )
 
 def create_password(request, token):
+    
     try:
-        #  profile_obj = Profile.objects.get(forget_password_token = token)
-        #  print(profile_obj)
-        print("")
+        profile_obj = Profile.objects.filter(forget_password_token = token).first()
+        
+    
+        if request.method == 'POST':
+            new_password = request.POST['new_password']
+            user_email = profile_obj.reset_email
+            if User.objects.filter(email = user_email ).first():
+                user_obj = User.objects.get(email=user_email)
+                user_obj.set_password(new_password)
+                user_obj.save()
+                return redirect('reset-complete')
+
+            # user_obj = User.objects.get(email = email)
+            # print(user_obj)
+            # if User.objects.filter(password=new_password):
+            #     print('same password')
+            #     messages.info(request, "Enter diffrent password")
+            # else:
+            #      print("diffrent")
     except Exception as e:
          print(e)
     return render(request, 'authentication/reset/create_password.html')

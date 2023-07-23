@@ -39,7 +39,12 @@
         </div>
         <section class="hero-container">
             <div class="hero">
+                {% if request.user.is_authenticated %}
+                <h1 class="hero-moto">Live Green, Live Luxuriously. {{ request.user }}</h1>
+                {% else %}
                 <h1 class="hero-moto">Live Green, Live Luxuriously.</h1>
+                {% endif %}
+                
                 <p>Discover the Advantages of Eco-Friendly Homes with Our Real Estate Agency.</p>
                 <div class="search-bar">
                     <li><a href="#">For&nbsp;sale&nbsp;<i class="ri-arrow-down-s-line"></i></a></li>
@@ -550,7 +555,7 @@
                     <li class="footer-titles">Company</li>
                     <li><a href="">About us</a></li>
                     <li><a href="">Our mission and vision</a></li>
-                    <li><a href="">Our team</a></li>
+                    <li><a href="/logout">Our team</a></li>
                 </ul>
             </div>
 

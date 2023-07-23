@@ -1,7 +1,6 @@
 from django.core.mail import send_mail , EmailMessage
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
-import uuid
 from django.conf import settings #imported setting to get the sender email EMAIL_HOST_USER
 from .models import *
 
@@ -29,14 +28,13 @@ def send_welcome_email( request, subject, email_context, recipient_list):
     message.send()
     return render(request, 'authentication/signup.html')
 
-def forget_password_email_send(recipient_list):
+def forget_password_email_send(recipient_list, token):
     """
     Send an email to reset password
         recipient_list: List of email, to send email
     """
 
-    #create a token
-    token = str(uuid.uuid4())
+    
     
     subject = "Password Recovery, Eco Heaven Realty"
     html_template = 'authentication/email_templates/password_reset_email.html'
@@ -53,3 +51,5 @@ def forget_password_email_send(recipient_list):
     message.content_subtype = 'html'
     message.send()
 
+def get_reset_email(email):
+    email

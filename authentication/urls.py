@@ -5,6 +5,7 @@ urlpatterns = [
     path('', views.base, name='base'),
     path('login/', views.login, name='login'),
     path('signup/', views.signup, name='signup'),
+    path('logout/', views.logout, name='logout'),
 
     #password reset urls
     path('reset-password/', views.password_reset, name='reset_password'),
