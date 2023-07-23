@@ -41,28 +41,18 @@
                 <span>Create your account</span>
               </p>
             </div>
-
+            {% for message in messages %}
             <div
               class=""
-              style="width: 100%; height: fit-content; padding: 10px"
-            >
-              {% for message in messages %}
+              style="width: 80%;height: auto;padding: 20px;justify-content: center;display: flex;flex-direction: column;background-color: rgb(235, 42, 42); ">
+              
               <p
-                style="
-                  text-align: start;
-                  color: white;
-                  padding: 20px;
-                  height: 50px;
-                  width: 100%;
-                  font-size: 15px;
-                  background-color: rgba(255, 0, 0, 0.479);
-                "
-              >
+                style="text-align: center;color: white; height: auto; width: 100%;  font-size: 15px; background-color: rgb(235, 42, 42);" >
                 {{message}}
               </p>
-              {% endfor %}
+              
             </div>
-
+            {% endfor %}
             <form method="post" id="form">
               {% csrf_token %}
 

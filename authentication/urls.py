@@ -8,6 +8,7 @@ urlpatterns = [
 
     #password reset urls
     path('reset-password/', views.password_reset, name='reset_password'),
-    path('email-sent-confirmation/', views.email_sent_confirmation, name='email-sent-confirmation'),
-    path('create-password/', views.create_password, name='create-password'),
+    path('email-sent/', views.email_sent_confirmation, name='email-sent'),
+    path('create-password/<token>/', views.create_password, name='create-password'),
+    path('reset-complete/', views.reset_complete, name='reset-complete'),
 ]
