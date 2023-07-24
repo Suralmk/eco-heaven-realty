@@ -18,11 +18,10 @@ def login(request):
         # storing the values entered by the user in a variable.
         username = request.POST['username']
         password = request.POST['password']
-
         auth_user = authenticate(request, username=username, password=password)
 
         if auth_user == None:
-            print("no one found\n")
+            messages.info(request, " * User not found\n* Incorrect password\n* Did not enter suernameor passsword")
         elif auth_user is not None:
             auth_login(request, auth_user)
             return redirect('base')
