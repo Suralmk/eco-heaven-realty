@@ -21,7 +21,7 @@ def login(request):
         auth_user = authenticate(request, username=username, password=password)
 
         if auth_user == None:
-            messages.info(request, " * User not found\n* Incorrect password\n* Did not enter suernameor passsword")
+            messages.info(request, "User not found")
         elif auth_user is not None:
             auth_login(request, auth_user)
             return redirect('base')
@@ -119,6 +119,8 @@ def create_password(request, token):
     
         if request.method == 'POST':
             new_password = request.POST['new_password']
+            if new_password == '' or None:
+                 messages.info(request, "enter password")
             user_email = profile_obj.reset_email
             if User.objects.filter(email = user_email ).first():
                 user_obj = User.objects.get(email=user_email)

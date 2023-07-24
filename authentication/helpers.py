@@ -33,13 +33,11 @@ def forget_password_email_send(recipient_list, token):
     Send an email to reset password
         recipient_list: List of email, to send email
     """
-
-    
-    
     subject = "Password Recovery, Eco Heaven Realty"
     html_template = 'authentication/email_templates/password_reset_email.html'
     email_context = {
-        'token_key': f'http://127.0.0.1:8000/create-password/{token}/'
+        'token_key': f'http://127.0.0.1:8000/create-password/{token}/',
+        'email': recipient_list[0]
     }
     html_message = render_to_string(html_template, context=email_context)
     

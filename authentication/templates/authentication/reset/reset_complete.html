@@ -1,12 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/email_sent_confirmation.css'%}">
     <title>Document</title>
 </head>
 <body>
-    reset complete
-    <a href="/login">login</a>
+    <div class="fullscreen">
+        <div class="top">
+            <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+            <lord-icon
+                class="icon"
+                src="https://cdn.lordicon.com/jvihlqtw.json"
+                trigger="hover"
+                colors="primary:#121331,secondary:#0008ff"
+                style="">
+            </lord-icon>
+        </div>
+        <div class="container">
+           
+            <div class="bottom">
+                <p class="title">Password reset successful:</p> 
+                <span class="sent-email"><a href="/login" style="text-decoration: none; background:#3f885c;
+                 width: 100%; height: 100%; text-align: center; color: rgb(235, 235, 235); padding: 5px; border-radius: 5px;"> Login</a></span> <br>
+                 <style>
+                    .sent-email a:hover{
+                        background: #42a569;
+                    }
+                 </style>
+                <p class="procedure">
+                    " If you have any security issues regarding to your account and personal data, 
+                    please do not hesitate to contact us."
+                    <a href="/" style="text-decoration: none; color: rgb(71, 71, 167); margin-top: 10px;">contact us</a>
+                </p>
+            </div>
+           
+        </div>
+    </div>
+    
 </body>
 </html>
