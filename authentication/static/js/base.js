@@ -4,15 +4,17 @@ if (typeof window !== "undefined")
     
     window.addEventListener("scroll", () => {
 
-        const header_nav = document.querySelector(".nav-container")
+        //fixed nav bar
+        const headerNav = document.querySelector(".nav-container")
+        const heroContainer = document.querySelector(".hero-container")
         if (window.scrollY > 0){
-            header_nav.classList.add("sticky");
-            console.log("here")
+            headerNav.classList.add("sticky");
+            heroContainer.classList.add("hero-contain");
         }
         else{
-            header_nav.classList.remove("sticky")
+            headerNav.classList.remove("sticky")
         }
-        console.log("here")
+
 
         //scroll to top page  
     const topBtn = document.querySelector(".scroll-to-top-btn");
@@ -23,11 +25,28 @@ if (typeof window !== "undefined")
             topBtn.classList.remove("active-top-btn");
         }
     })
-    // window.addEventListener('scroll', function(){
-    //     var header_nav = document.getElementsByClassName("nav-container")
-    // })
+
+    //expandable content of  frequently asked questions
+    const  title = document.querySelectorAll(".answer-to-questions");
+    title.forEach(title => {
+        title.addEventListener("click", () =>{
+            title.classList.toggle("active");
+        });
+    });
 
 
+    const  userProfile = document.querySelectorAll(".user");
+    const userSetting = document.querySelector(".user-setting");
+    function showUser(){
+        userSetting.classList.toggle("showuser")
+     }
+     for (var i in userProfile) {
+        userProfile[i].onclick= function() {
+          showUser();
+        };
+    //  userProfile.addEventListener("mouseover", showUser);
+        
+     
 }
 
-
+}

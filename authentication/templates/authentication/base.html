@@ -19,34 +19,6 @@
 <div class="full-screen-container"> 
     <div class="header-container" style="background-image: url('{% static 'src/base/header-bg.jpg' %}')">
         <div class="nav-container">
-            <script>
-                window.addEventListener("scroll", () => {
-
-                        const header_nav = document.querySelector(".nav-container")
-                        if (window.scrollY > 3){
-                            header_nav.classList.add("sticky");
-                        }
-                        else{
-                            header_nav.classList.remove("sticky")
-                        }
-                        console.log("here")
-
-                        })
-            </script>
-            <style>
-                .sticky{
-                    position: fixed;
-                    background: #27563aee;
-                    transition:  1s ease-in-out;
-                    box-shadow: rgba(0, 0, 0, 0.39) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
-                    }
-                .nav-container{
-                    transition: 0.5s ease;
-                }
-                .hero{
-                    transition: 6s;
-                }
-            </style>
             <div class="logo-container">
                 <img src="{% static '/src/logo-icon.svg'%}" alt="svg">
                 <h3 class="company-name">Eco Heaven Realty</h3>
@@ -61,49 +33,43 @@
                 </ul>
             </nav>
             <div class="create-and-login">
-                <button type="menu" href="{{ 'login' }}">Login</button>
-                <button type="submit" id="create-account-btn">Create an account</button>
-                <a href=""><i class="ri-menu-line"></i></a>
-                <a href=""><i class="ri-close-line"></i></a>
+                <button type="button" >Login</button>
+                <button type="button" id="create-account-btn">Create an account</button>
+                <a href=""><i class="ri-menu-line" style="display: none;"></i></a>
+                <a href=""><i class="ri-close-line" style="display: none;""></i></a>
             </div>
+
             {% if request.user.is_authenticated %}
             <a href="" style="display: none;"><i class="ri-menu-line"></i></a>
             <a href="" style="display: none;"><i class="ri-close-line"></i></a>
             <style>
                     .create-and-login{
                         display: none;
-                    }
-                    .user{
-                        display: flex;
-                        gap: 10px;
-                    }
-                    .user a {
-                        text-decoration: none;
-                        outline: none;
-                        border: 1px solid white;
-                        border-radius: 50%;
-                        padding: 2px 2px;
-                        cursor: pointer;
-                        background: #27563a60;
-                    }
-                    .user a i{
-                        color: rgb(255, 255, 255);
-                        font-size: 30px;
-                        font-weight: 200;
-                        line-height: 25px;
-                    }
-                    .user a:nth-of-type(2){
-                        display: none;
-                    }
-
+                    }  
             </style>
-            <div class="user" style="display: flex;
-            gap: 10px;">
-                <a href="user_setting.html"><i class="ri-account-circle-line"></i></a>
+            <script>
                 
+            </script>
+            <div class="user-container">
+                <div class="user" style="display: flex ; gap: 10px;">
+                    <a ><i class="ri-account-circle-line"></i></a>
+                </div>
+                <div class="user-setting">
+                    <div class="usersetting-username">
+                        <p>{{request.user}}</p>
+                    </div>
+                    
+                    <a href="">Change Email</a>
+                    <hr>
+                    <a href="">Change Password</a>
+                    <hr>
+                    <a href="/logout">Logout</a>
+                </div>
             </div>
+            
             {% endif %}
         </div>
+
         <section class="hero-container">
             <div class="hero">
                 {% if request.user.is_authenticated %}
@@ -111,12 +77,7 @@
                 {% else %}
                 <h1 class="hero-moto">Live Green, Live Luxuriously.</h1>
                 {% endif %}
-                <style>
-                    
-                    .hero-container{
-                        transition: 6s;
-                    }
-                </style>
+
                 <p>Discover the Advantages of Eco-Friendly Homes with Our Real Estate Agency.</p>
                 <div class="search-bar">
                     <li><a href="#">For&nbsp;sale&nbsp;<i class="ri-arrow-down-s-line"></i></a></li>
@@ -440,41 +401,53 @@
             <div class="answer-to-questions">
                 <div class="answer-to-questions-header">
                     <h3>What makes EcoHaven Realty different from other real estate agencies?</h3>
-                    <a id="answer-hide-btn"  href=""><i class="ri-arrow-up-s-line"></i></a>
+                    <p id="answer-hide-btn"  href="">
+                        <i class="ri-arrow-up-s-line"></i>
+                        <i class="ri-arrow-down-s-line"></i></p>
                 </div>
-                <p id="answer">At EcoHaven Realty, we are committed to promoting sustainability in the real estate industry. We prioritize eco-friendly practices, such as green building techniques and energy-efficient systems, in all of our transactions. We believe that promoting environmental responsibility is not only the right thing to do, but it also benefits our clients by providing long-term cost savings and a healthier living environment.</p>
+                <div class="content"><p >At EcoHaven Realty, we are committed to promoting sustainability in the real estate industry. We prioritize eco-friendly practices, such as green building techniques and energy-efficient systems, in all of our transactions. We believe that promoting environmental responsibility is not only the right thing to do, but it also benefits our clients by providing long-term cost savings and a healthier living environment.</p></div>
+                
             </div>
 
             <div class="answer-to-questions">
                 <div class="answer-to-questions-header">
                     <h3>Do you only work with eco-friendly properties?</h3>
-                    <a id="answer-hide-btn"  href=""><i class="ri-arrow-up-s-line"></i></a>
+                    <p id="answer-hide-btn"  href="">
+                        <i class="ri-arrow-up-s-line"></i>
+                        <i class="ri-arrow-down-s-line"></i></p>
                 </div>
-                <p id="answer">While we specialize in promoting and selling eco-friendly properties, we work with all types of properties. Our focus is on promoting sustainable practices and educating our clients on how they can make their properties more eco-friendly.</p>
+                <div  class="content"><p>While we specialize in promoting and selling eco-friendly properties, we work with all types of properties. Our focus is on promoting sustainable practices and educating our clients on how they can make their properties more eco-friendly.</p></div>
             </div>
 
             <div class="answer-to-questions">
                 <div class="answer-to-questions-header">
                     <h3>Can you help me find an eco-friendly property?</h3>
-                    <a id="answer-hide-btn"  href=""><i class="ri-arrow-up-s-line"></i></a>
+                    <p id="answer-hide-btn"  href="">
+                        <i class="ri-arrow-up-s-line"></i>
+                        <i class="ri-arrow-down-s-line"></i></p>
                 </div>
-                <p id="answer">Absolutely! We have a database of eco-friendly properties and can work with you to find a property that aligns with your sustainability goals. Additionally, we can provide guidance on how to make any property more eco-friendly.</p>
+                <div  class="content"><p>Absolutely! We have a database of eco-friendly properties and can work with you to find a property that aligns with your sustainability goals. Additionally, we can provide guidance on how to make any property more eco-friendly.</p></div>
             </div>
-
+            
             <div class="answer-to-questions">
                 <div class="answer-to-questions-header">
                     <h3>What is your process for ensuring a property is eco-friendly?</h3>
-                    <a id="answer-hide-btn"  href=""><i class="ri-arrow-up-s-line"></i></a>
+                    <p id="answer-hide-btn"  href="">
+                        <i class="ri-arrow-up-s-line"></i>
+                        <i class="ri-arrow-down-s-line"></i></p>
                 </div>
-                <p id="answer">We work with builders and contractors who specialise in eco-friendly building practices. We also conduct assessments of a property's energy and water usage, as well as its overall sustainability features, to ensure that it aligns with our eco-friendly standards.</p>
+                <div class="content"><p >We work with builders and contractors who specialise in eco-friendly building practices. We also conduct assessments of a property's energy and water usage, as well as its overall sustainability features, to ensure that it aligns with our eco-friendly standards.</p></div>
             </div>
 
             <div class="answer-to-questions">
                 <div class="answer-to-questions-header">
                     <h3>Are eco-friendly properties more expensive?</h3>
-                    <a id="answer-hide-btn" href=""><i class="ri-arrow-up-s-line"></i></a>
+                    <p id="answer-hide-btn" href="">
+                        <i class="ri-arrow-up-s-line"></i>
+                        <i class="ri-arrow-down-s-line"></i>
+                    </p>
                 </div>
-                <p id="answer">Not necessarily. While some eco-friendly features may require an initial investment, such as solar panels or energy-efficient systems, they can ultimately lead to long-term cost savings on utility bills. Additionally, there are often government incentives and tax breaks available for eco-friendly properties and features..</p>
+                <div class="content"><p>Not necessarily. While some eco-friendly features may require an initial investment, such as solar panels or energy-efficient systems, they can ultimately lead to long-term cost savings on utility bills. Additionally, there are often government incentives and tax breaks available for eco-friendly properties and features..</p></div>
             </div>
         </div>
     </div>
@@ -506,14 +479,20 @@
                     
                 <div class="format selector-input">
                     <label for="enquiry">What is your enquiry about?*</label>
-                    <select  id="enquiry">
-                        <option value="">Select one</option>
-                        <option value="">Buy a house</option>
-                        <option value="">Rent a house</option>
-                        <option value="">Visit site</option>
-                        <option value="">contact agent</option>
-                        <option value="">Information about locations</option>
-                    </select>
+                    <div class="select-container">
+                        <select class="select-box" id="enquiry">
+                            <option value="a">Select one</option>
+                            <option value="">Buy a house</option>
+                            <option value="">Rent a house</option>
+                            <option value="">Visit site</option>
+                            <option value="">contact agent</option>
+                            <option value="">Information about locations</option>
+                        </select>
+                        <div class="select-icon">
+                            <i class="ri-arrow-down-s-line" ></i>
+                        </div>
+                    </div>
+                    
                 </div>
                     
                 <div class="format additional-info-input">
