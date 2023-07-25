@@ -60,7 +60,7 @@ body{
 }
 .nav-buttons ul li{
     list-style-type: none;
-    margin-left: 32px;
+    margin-left: 25px;
 }
 .nav-buttons li:nth-of-type(1){
     margin-left: 0;
@@ -70,10 +70,17 @@ body{
     color: #ffffff;
     font-size: 14px;
     font-weight: 600;
-    transition: 0.6s;
 }
-.nav-buttons li a:hover i{
-   rotate:calc(2 * 20deg);
+.nav-buttons ul li a{
+    padding: 8px 15px;
+    display: flex;
+}
+
+.nav-buttons li a:hover{
+    background: rgba(241, 241, 241, 0.226);
+
+
+    border-radius: 2px;
 }
 .create-and-login{
     display: flex;
@@ -95,6 +102,86 @@ body{
 .create-and-login button:nth-of-type(2){
     background: #27563A;
     border: none;
+}
+
+/* nav buttons drop down*/
+#company-drop-down  .ri-arrow-up-s-line{
+    display: none;
+}
+#company-drop-down  .ri-arrow-down-s-line{
+    display: block;
+}
+.active-setting .ri-arrow-up-s-line{
+    display: block;
+}
+
+.company-drop-down-setting{
+    display: none;
+    position: absolute;
+    top: 84px;
+    height: auto;
+    width:auto;
+    padding: 10px;
+    background: rgb(241, 241, 241);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+}
+.show-company-drop-down{
+    display: block;
+    left: 44%;
+}
+
+.company-setting-header{
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: 10px;
+    background-color: rgba(57, 68, 12, 0.63);
+}
+.company-setting-header p {
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bolder;
+}
+.company-drop-down-setting a{
+    display: block;
+    height: 20px;
+    margin: 10px 5px;
+    text-decoration: none;
+    color: black;
+}
+.company-drop-down-setting a:hover{
+    color: #0b6d23;
+}
+
+
+
+
+.cateagory-drop-down-setting{
+    display: block;
+    position: absolute;
+    top: 84px;
+    height: auto;
+    width:auto;
+    padding: 10px;
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+}
+.cateagory-drop-down-setting p {
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bolder;
+}
+.cateagory-drop-down-setting a{
+    display: block;
+    height: 20px;
+    margin: 10px 5px;
+    text-decoration: none;
+    color: black;
+}
+.cateagory-drop-down-setting a:hover{
+    color: #0b6d23;
 }
 /*authenticated user*/
 
@@ -129,9 +216,9 @@ body{
     display: none;
 }
 .user-setting{
-    display: none;
+    display: block;
     position: absolute;
-    right: 1%;
+    left: 100%;
     top: 84px;
     height: auto;
     width:200px;
@@ -140,14 +227,15 @@ body{
     box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
 }
 .showuser{
-    display: block;
+    transition: 0.6s;
+    left: 84.5%;
 }
 .usersetting-username{
     width: 100%;
     height: auto;
     display: block;
     padding: 10px;
-    background-color: black;
+    background-color: #27563A;
 }
 .usersetting-username p {
     color: white;
@@ -164,7 +252,7 @@ body{
 }
 .user-setting a:hover{
     
-    color: #088339;
+    color: #0b6d23;
 }
 
 .hero-container{

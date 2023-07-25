@@ -1,9 +1,8 @@
 if (typeof window !== "undefined")
 {
 
-    
-    window.addEventListener("scroll", () => {
 
+    window.addEventListener("scroll", () => {
         //fixed nav bar
         const headerNav = document.querySelector(".nav-container")
         const heroContainer = document.querySelector(".hero-container")
@@ -35,6 +34,7 @@ if (typeof window !== "undefined")
     });
 
 
+    //user profile drop down
     const  userProfile = document.querySelectorAll(".user");
     const userSetting = document.querySelector(".user-setting");
     function showUser(){
@@ -44,9 +44,20 @@ if (typeof window !== "undefined")
         userProfile[i].onclick= function() {
           showUser();
         };
-    //  userProfile.addEventListener("mouseover", showUser);
-        
-     
-}
+    }
+    //to show company drop down
+    const  companyDropDown = document.querySelector("#company-drop-down");
+    const companySetting = document.querySelector(".company-drop-down-setting");
+    function showCompany(){
+        companySetting.classList.toggle("show-company-drop-down")
+        companyDropDown.classList.toggle("active-setting")
+     }
+     companyDropDown.addEventListener("click", showCompany)
+    
 
+    //remove event listner when body element is clicked
+    const body = document.getElementsByTagName("body");
+    function removeEvent(){
+
+    }
 }

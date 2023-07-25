@@ -25,13 +25,45 @@
             </div>
             <nav class="nav-buttons">
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Comapny&nbsp;<i class="ri-arrow-down-s-line"></i></a></li>
-                    <li><a href="#">Cateagory&nbsp;<i class="ri-arrow-down-s-line"></i></a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">ContuctUs</a></li>
+                    <li><a href="#hne">Home</a></li>
+                    <li><a href="#comp" id="company-drop-down">Comapny&nbsp;<i class="ri-arrow-down-s-line"></i><i class="ri-arrow-up-s-line"></i></a>
+                    </li>
+                    <li><a href="#ctgry">Cateagory&nbsp;
+                            <i class="ri-arrow-down-s-line"></i>
+                            <i class="ri-arrow-up-s-line"></i>
+                        </a>
+                    </li>
+                    <li><a href="#blg">Blog</a></li>
+                    <li><a href="#cus">ContuctUs</a></li>
                 </ul>
             </nav>
+
+            <div class="company-drop-down-setting">
+                <div class="company-setting-header">
+                    <p>Eco Heaven Realty is the best</p>
+                </div>
+                <a href="">Our Mission</a>
+                    <hr>
+                    <a href="">Our Goals</a>
+                    <hr>
+                    <a href="">Change Password</a>
+                    <hr>
+                    <a href="/logout">Logout</a>
+            </div>
+
+            <div class="cateagory-drop-down-setting">
+                <div class="company-setting-header">
+                    <p>Eco Heaven Realty is the best</p>
+                </div>
+                <a href="">Our Mission</a>
+                    <hr>
+                    <a href="">Our Goals</a>
+                    <hr>
+                    <a href="">Change Password</a>
+                    <hr>
+                    <a href="/logout">Logout</a>
+            </div>
+
             <div class="create-and-login">
                 <button type="button" >Login</button>
                 <button type="button" id="create-account-btn">Create an account</button>
@@ -47,9 +79,6 @@
                         display: none;
                     }  
             </style>
-            <script>
-                
-            </script>
             <div class="user-container">
                 <div class="user" style="display: flex ; gap: 10px;">
                     <a ><i class="ri-account-circle-line"></i></a>
@@ -61,12 +90,13 @@
                     
                     <a href="">Change Email</a>
                     <hr>
+                    <a href="">Change Username</a>
+                    <hr>
                     <a href="">Change Password</a>
                     <hr>
                     <a href="/logout">Logout</a>
                 </div>
             </div>
-            
             {% endif %}
         </div>
 
