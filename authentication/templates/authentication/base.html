@@ -17,6 +17,32 @@
 </head>
 <body>
 <div class="full-screen-container"> 
+      <!--Authenticated user profile setting modal popups-->
+
+        <!-- change password -->
+        <div class="change-passwprd-contain">
+            
+            <div class="change-container">
+                <div class="close-btn">
+                    <i class="ri-close-fill"></i>
+                </div>
+
+                <h3 class="login-title">Change Password</h3>
+                <form>
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <label>Current Password</label>
+                        <input type="password" name="current_password">
+                    </div>
+                        <div class="input-group">
+                        <label> New Password</label>
+                        <input type="password" name="new_password" >
+                    </div>
+                    <button type="submit" class="change-btn">Change Password</button>
+                </form>
+            </div>
+        </div>
+
     <div class="header-container" style="background-image: url('{% static 'src/base/header-bg.jpg' %}')">
         <div class="nav-container">
             <div class="logo-container">
@@ -26,12 +52,9 @@
             <nav class="nav-buttons">
                 <ul>
                     <li><a href="#hne">Home</a></li>
-                    <li><a href="#comp" id="company-drop-down">Comapny&nbsp;<i class="ri-arrow-down-s-line"></i><i class="ri-arrow-up-s-line"></i></a>
+                    <li><a href="#comp" class="nav-company-btn">Comapny&nbsp;<i class="ri-arrow-down-s-line"></i><i class="ri-arrow-up-s-line"></i></a>
                     </li>
-                    <li><a href="#ctgry">Cateagory&nbsp;
-                            <i class="ri-arrow-down-s-line"></i>
-                            <i class="ri-arrow-up-s-line"></i>
-                        </a>
+                    <li><a href="#ctgry" class="nav-cateagory-btn">Cateagory&nbsp;<i class="ri-arrow-down-s-line"></i><i class="ri-arrow-up-s-line"></i></a>
                     </li>
                     <li><a href="#blg">Blog</a></li>
                     <li><a href="#cus">ContuctUs</a></li>
@@ -40,28 +63,24 @@
 
             <div class="company-drop-down-setting">
                 <div class="company-setting-header">
-                    <p>Eco Heaven Realty is the best</p>
+                    <p>Eco Heaven Realty</p>
                 </div>
                 <a href="">Our Mission</a>
                     <hr>
                     <a href="">Our Goals</a>
                     <hr>
-                    <a href="">Change Password</a>
+                    <a>Change Password</a>
                     <hr>
-                    <a href="/logout">Logout</a>
+                    <a href="">Logout</a>
             </div>
 
             <div class="cateagory-drop-down-setting">
-                <div class="company-setting-header">
-                    <p>Eco Heaven Realty is the best</p>
+                <div class="cateagory-setting-header">
+                    <p>Option</p>
                 </div>
-                <a href="">Our Mission</a>
+                    <a href="">For Rent</a>
                     <hr>
-                    <a href="">Our Goals</a>
-                    <hr>
-                    <a href="">Change Password</a>
-                    <hr>
-                    <a href="/logout">Logout</a>
+                    <a href="">For Rent</a>
             </div>
 
             <div class="create-and-login">
@@ -92,7 +111,7 @@
                     <hr>
                     <a href="">Change Username</a>
                     <hr>
-                    <a href="">Change Password</a>
+                    <a id="change-password" style="cursor: pointer;">Change Password</a>
                     <hr>
                     <a href="/logout">Logout</a>
                 </div>

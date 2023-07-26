@@ -141,3 +141,8 @@ def create_password(request, token):
 
 def reset_complete(request):
     return render(request, 'authentication/reset/reset_complete.html')
+
+
+#Anuthenticated user profile
+def change_passwprd(request):
+     return render(request, 'authentication/profile/change_password.html')

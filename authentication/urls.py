@@ -12,4 +12,7 @@ urlpatterns = [
     path('email-sent/', views.email_sent_confirmation, name='email-sent'),
     path('create-password/<token>/', views.create_password, name='create-password'),
     path('reset-complete/', views.reset_complete, name='reset-complete'),
+
+    #Authenticated user profile urls
+    path('change-password/', views.change_passwprd, name='change_passwprd'),
 ]
