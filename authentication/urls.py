@@ -1,6 +1,10 @@
 from django.urls import path
 from . import views
 
+
+from post import views as post_view
+
+
 urlpatterns = [
     path('', views.base, name='base'),
     path('login/', views.login, name='login'),
@@ -15,4 +19,7 @@ urlpatterns = [
 
     #Authenticated user profile urls
     path('change-password/', views.change_passwprd, name='change_passwprd'),
+
+    #creating post url, only for admin
+    path('post', post_view.create_post, name='cretae_post')
 ]

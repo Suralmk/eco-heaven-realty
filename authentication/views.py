@@ -4,13 +4,15 @@ from django.contrib import messages
 from .models  import *
 from django.contrib.auth.models import auth
 from .helpers import forget_password_email_send, send_welcome_email, get_reset_email
-
 User = get_user_model()
 
 def base(request):
     return render(request, 'authentication/base.html')
 
 def login(request):
+    context = {
+         'link' : 'http://127.0.0.1:8000/login/'
+    }
     if request.user.is_authenticated:
         return redirect('base')
     if request.method == 'POST':
@@ -27,7 +29,7 @@ def login(request):
             return redirect('base')
         else:
             return redirect('base')
-    return render(request, 'authentication/login.html')
+    return render(request, 'authentication/login.html', context)
 
 def logout(request):
     auth_logout(request)

@@ -60,10 +60,10 @@
             </div>
 
             <div class="create-and-login">
-                <button type="button" >Login</button>
-                <button type="button" id="create-account-btn">Create an account</button>
+                <a href="/login"><button type="button" >Login</button></a>
+                <a href="/signup"><button type="button" id="create-account-btn">Create an account</button></a>
                 <a href=""><i class="ri-menu-line" style="display: none;"></i></a>
-                <a href=""><i class="ri-close-line" style="display: none;""></i></a>
+                <a href=""><i class="ri-close-line" style="display: none;"></i></a>
             </div>
 
             {% if request.user.is_authenticated %}
@@ -75,10 +75,16 @@
                     }  
             </style>
             <div class="user-container">
-                <div class="user" style="display: flex ; gap: 10px;">
+                <div class="auth-user-nav">
                     <button type="button" >Browse Homes</button>
-                    <a ><i class="ri-account-circle-line"></i></a>
+                    {% if request.user.is_superuser %}
+                    <a id="add-homes" href="/post"><i class="ri-add-line"></i></a>
+                    {% endif %}
+                    <div class="user" style="display: flex ; gap: 10px;">
+                        <a  style="display: block;"><i class="ri-account-circle-line"></i></a>
+                    </div>
                 </div>
+                
                 <div class="user-setting">
                     <div class="usersetting-username">
                         <p>{{request.user}}</p>
@@ -662,7 +668,9 @@
                 <ul>
                     <li class="footer-titles">Support</li>
                     <li><a href="#schedule">Contact us</a></li>
+                    {% if not request.user.is_authenticated %}
                     <li><a href="/login">Login</a></li>
+                    {% endif %}
                 </ul>
         </div>
 

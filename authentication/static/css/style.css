@@ -208,11 +208,16 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 250px;
-
+    width: auto;
     justify-content: space-between;
 }
-.user button{
+.auth-user-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+.auth-user-nav button{
     border: 1px solid white;
     outline: none;
     background: none;
@@ -225,13 +230,25 @@ body{
     cursor: pointer;
     transition: 0.6s;
 }
+.auth-user-nav #add-homes{
+    text-decoration: none;
+    padding: 2px 2px;
+    cursor: pointer;
+    right: 0;
 
+}
+
+.auth-user-nav #add-homes i{
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    font-weight: 200;
+    line-height: 25px;
+}
 .user a {
     text-decoration: none;
     padding: 2px 2px;
     cursor: pointer;
     right: 0;
-    margin-right: 20px;
 
 }
 .user a i{
