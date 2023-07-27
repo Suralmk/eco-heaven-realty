@@ -17,31 +17,7 @@
 </head>
 <body>
 <div class="full-screen-container"> 
-      <!--Authenticated user profile setting modal popups-->
-
-        <!-- change password -->
-        <div class="change-passwprd-contain">
-            
-            <div class="change-container">
-                <div class="close-btn">
-                    <i class="ri-close-fill"></i>
-                </div>
-
-                <h3 class="login-title">Change Password</h3>
-                <form>
-                    {% csrf_token %}
-                    <div class="input-group">
-                        <label>Current Password</label>
-                        <input type="password" name="current_password">
-                    </div>
-                        <div class="input-group">
-                        <label> New Password</label>
-                        <input type="password" name="new_password" >
-                    </div>
-                    <button type="submit" class="change-btn">Change Password</button>
-                </form>
-            </div>
-        </div>
+      
 
     <div class="header-container" style="background-image: url('{% static 'src/base/header-bg.jpg' %}')">
         <div class="nav-container">
@@ -117,6 +93,32 @@
                     <a href="/logout">Logout</a>
                 </div>
             </div>
+
+            <!--Authenticated user profile setting modal popups-->
+
+        <!-- change password -->
+        <div class="change-passwprd-contain">
+            
+            <div class="change-container">
+                <div class="close-btn">
+                    <i class="ri-close-fill"></i>
+                </div>
+
+                <h3 class="login-title">Change Password</h3>
+                <form>
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <label>Current Password</label>
+                        <input type="password" name="current_password" id="password">
+                    </div>
+                        <div class="input-group">
+                        <label> New Password</label>
+                        <input type="password" name="new_password" id="password" >
+                    </div>
+                    <button type="submit" class="change-btn">Change Password</button>
+                </form>
+            </div>
+        </div>
             {% endif %}
         </div>
 
@@ -511,7 +513,7 @@
 
             <form action="" method="post"> 
                 {% csrf_token %}
-                <div class="customer-name-phone">
+                <div class="customer-name-phone" style=" width: 100%;">
                     <div class="format full-name">
                         <label for="name">Full name</label>
                         <input type="text" name="full-name" placeholder="Full name">
@@ -522,15 +524,14 @@
                     </div>
                 </div>
 
-                <div class="format email-input">
+                <div class="format email-input" style=" width: 100%;">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" placeholder="Your email">
                 </div>
                     
-                <div class="format selector-input">
+                <div class="format selector-input" style=" width: 100%;">
                     <label for="enquiry">What is your enquiry about?*</label>
-                    <div class="select-container">
-                        <select class="select-box" id="enquiry">
+                        <select  id="enquiry">
                             <option value="a">Select one</option>
                             <option value="">Buy a house</option>
                             <option value="">Rent a house</option>
@@ -538,14 +539,11 @@
                             <option value="">contact agent</option>
                             <option value="">Information about locations</option>
                         </select>
-                        <div class="select-icon">
-                            <i class="ri-arrow-down-s-line" ></i>
-                        </div>
-                    </div>
+                        
                     
                 </div>
                     
-                <div class="format additional-info-input">
+                <div class="format additional-info-input"style=" width: 100%;">
                     <label for="Message">Additional information</label>
                     <textarea name="textarea" id="textarea" cols="30" rows="5" placeholder="Message"></textarea>
                 </div>

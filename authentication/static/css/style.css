@@ -953,6 +953,7 @@ form input, select{
     outline: none;
     border: none;
     border-radius: 8px;
+    width: 100%;
 }
 .customer-name-phone{
     width: auto;
@@ -967,6 +968,7 @@ form input, select{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
 }
 .format label{
     margin-bottom: 10px;
@@ -980,9 +982,9 @@ form input, select{
     width: 4px;
     height: 4px;
     display: inline-flex;
-    background: #ff0000;
     vertical-align: text-top ;
 }
+
 .additional-info-input input{
     height: 150px;
 }
@@ -1061,34 +1063,8 @@ form button{
     font-size: 32px;
     color: #27563A;
 }
-.select-container{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-}
-.select-box{
-    position: relative;
-    appearance: none;
-    width: 100%;
-}
-option{
-    height: 15px;
-}
-.select-icon i{
-    color: rgb(0, 0, 0);
-    font-size: 25px;
-}
-.select-container .select-icon {
-    width: 10%;
-    height: 100%;
-    position: absolute;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
+
 /*find your eco section*/
 
 .find-your-eco{
@@ -1359,12 +1335,7 @@ form{
     font-size: 30px;
     color: rgb(0, 0, 0);
 }
-.close-btn:hover{
-    background: #dbdada;
-}
-.close-btn:focus{
-    background: #463030;
-}
+
 
 .change-passwprd-container-active{
     display: none;
