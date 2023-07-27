@@ -2,11 +2,15 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.contrib.auth import get_user_model
 from django.contrib import messages
-import sys
-sys.path.append("..")
+from .models import HomePost
 
 
 User = get_user_model()
 
 def create_post(request):
-    return render(request, 'post/create_post.html')
+    postedHomes = HomePost.objects.get()
+    
+    context = {
+        'homepost': postedHomes
+    }
+    return render(request, 'post/create_post.html', context)
