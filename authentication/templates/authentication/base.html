@@ -45,9 +45,9 @@
                     <hr>
                     <a href="">Our Goals</a>
                     <hr>
-                    <a>Change Password</a>
+                    <a href="">Blog</a>
                     <hr>
-                    <a href="">Logout</a>
+                    <a href="">News</a>
             </div>
 
             <div class="cateagory-drop-down-setting">
@@ -138,9 +138,20 @@
 
                 <p>Discover the Advantages of Eco-Friendly Homes with Our Real Estate Agency.</p>
                 <div class="search-bar">
+                    <form action="" method="post" style="padding: 0px;
+                        background: #ffffff;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        width: 100%;
+                        justify-content: space-between;
+                        gap: 0px; 
+                        border-radius:  50px;">
+                    {% csrf_token %}
                     <li><a href="#">For&nbsp;sale&nbsp;<i class="ri-arrow-down-s-line"></i></a></li>
-                    <input type="text" name="search" id="" placeholder="Enter an address, city, neighborhood, or ZIP code.">
-                    <a class="search-bar-green" href="#"><i class="ri-search-line"></i></a>
+                    <input type="text" name="searched" id="" placeholder="Enter an address, city, neighborhood, or ZIP code.">
+                    <button class="search-bar-green" type="submot" style="margin: 0; cursor: pointer;"><i class="ri-search-line"></i></button>
+                </form>
                 </div>
             </div>
         </section>
