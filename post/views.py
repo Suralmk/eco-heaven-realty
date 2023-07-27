@@ -8,7 +8,7 @@ from .models import HomePost
 User = get_user_model()
 
 def create_post(request):
-    postedHomes = HomePost.objects.get()
+    postedHomes = HomePost.objects.all()
     
     context = {
         'homepost': postedHomes

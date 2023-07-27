@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         {% load static %}
+        {% load mathfilters %}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Luxury real esate</title>
@@ -13,42 +14,44 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
         <script defer src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-        <script src="{% static 'js/base.js'%}" defer></script>
     </head>
 <body>
-    <h1>Create a post from this page</h1>
+    <h1>Posted homes will be displayed in this page</h1>
     <section class="view-home">
         <div class="view-homes-wrapper">
             
             <div class="home-list-wrapper">
                 
+                {% for home in homepost %}
                 <div class="home-detail">
+                        
                     <div class="header-home-detail">
-                        <p>&#36;{{ homepost.price}}</p>
-                        <a href="#">For&nbsp;sale</a>
+                        {% if home.price > 999 %}
+                        <p>&#36;{{ home.price|intdiv:1000 }},000</p>
+                        {% else %}
+                        <p>&#36;{{ home.price }}</p>
+                        {% endif %}
+                        
+                        <a href="#">{{ home.home_type}}</a>
                     </div>
                     <div class="middle-home-detail">
                         <ul>
-                            <li><p>{{homepost.beds_rooms}} beds</p></li>
-                            <li><p>&middot;{{ homepost.bath_rooms }} baths</p></li>
-                            <li><p>&middot;{{ homepost.sqft }} sqfts</p></li>
+                            <li><p>{{home.beds_rooms}} beds</p></li>
+                            <li><p>&middot;{{ home.bath_rooms }} baths</p></li>
+                            <li><p>&middot;{{ home.sqft }} sqfts</p></li>
                             <li><p>&middot;Eco-friendlys</p></li>
                         </ul>
                         <p class="home-view-year"><i class="ri-time-line"></i>2 years ago</p>
                     </div>
                     <div class="home-image-view">
-                    <img src="{{ homepost.image.url}}" alt="home image view">
+                    <img src="{{ home.image.url}}" alt="home image view">
                     </div>
                     <div class="bottom-home-detail">
-                        <a href=""><p>{{ homepost.home_location }}</p></a>
+                        <a href=""><p>{{ home.home_location }}</p></a>
                         <a  href="#"><i  class="ri-heart-line heart"></i></a>
                     </div>
                 </div>
-            
-               
-                
-
-                
+                {% endfor %} 
             </div>
         </div>
     </section>
