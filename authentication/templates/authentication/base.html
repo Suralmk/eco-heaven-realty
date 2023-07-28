@@ -138,20 +138,12 @@
 
                 <p>Discover the Advantages of Eco-Friendly Homes with Our Real Estate Agency.</p>
                 <div class="search-bar">
-                    <form action="" method="post" style="padding: 0px;
-                        background: #ffffff;
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        width: 100%;
-                        justify-content: space-between;
-                        gap: 0px; 
-                        border-radius:  50px;">
-                    {% csrf_token %}
-                    <li><a href="#">For&nbsp;sale&nbsp;<i class="ri-arrow-down-s-line"></i></a></li>
-                    <input type="text" name="searched" id="" placeholder="Enter an address, city, neighborhood, or ZIP code.">
-                    <button class="search-bar-green" type="submot" style="margin: 0; cursor: pointer;"><i class="ri-search-line"></i></button>
-                </form>
+                    <form action="{% url 'searched-post'%}" method="post"   style="padding: 0px;background: #ffffff;  display: flex; flex-direction: row; align-items: center; width: 100%;justify-content: space-between;gap: 0px;  border-radius:  50px;">
+                        {% csrf_token %}
+                        <li><a href="#">For&nbsp;sale&nbsp;<i class="ri-arrow-down-s-line"></i></a></li>
+                        <input type="search" name="searched" id="searched" placeholder="Enter an address or city">
+                        <button class="search-bar-green" type="submit" style="margin: 0; cursor: pointer;"><i class="ri-search-line"></i></button></a>
+                    </form>
                 </div>
             </div>
         </section>

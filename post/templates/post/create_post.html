@@ -16,44 +16,15 @@
         <script defer src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     </head>
 <body>
-    <h1>Posted homes will be displayed in this page</h1>
-    <section class="view-home">
-        <div class="view-homes-wrapper">
+    
+    <h1>form for creating a post</h1>
+    <form action="" method="post">
+        {% csrf_token%}
+
+        <div>
             
-            <div class="home-list-wrapper">
-                
-                {% for home in homepost %}
-                <div class="home-detail">
-                        
-                    <div class="header-home-detail">
-                        {% if home.price > 999 %}
-                        <p>&#36;{{ home.price|intdiv:1000 }},000</p>
-                        {% else %}
-                        <p>&#36;{{ home.price }}</p>
-                        {% endif %}
-                        
-                        <a href="#">{{ home.home_type}}</a>
-                    </div>
-                    <div class="middle-home-detail">
-                        <ul>
-                            <li><p>{{home.beds_rooms}} beds</p></li>
-                            <li><p>&middot;{{ home.bath_rooms }} baths</p></li>
-                            <li><p>&middot;{{ home.sqft }} sqfts</p></li>
-                            <li><p>&middot;Eco-friendlys</p></li>
-                        </ul>
-                        <p class="home-view-year"><i class="ri-time-line"></i>2 years ago</p>
-                    </div>
-                    <div class="home-image-view">
-                    <img src="{{ home.image.url}}" alt="home image view">
-                    </div>
-                    <div class="bottom-home-detail">
-                        <a href=""><p>{{ home.home_location }}</p></a>
-                        <a  href="#"><i  class="ri-heart-line heart"></i></a>
-                    </div>
-                </div>
-                {% endfor %} 
-            </div>
         </div>
-    </section>
+    </form>
+ 
 </body>
 </html>

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout, get_user_model
 from django.contrib import messages
 from .models  import *
+from post.models import HomePost
 from django.contrib.auth.models import auth
 from .helpers import forget_password_email_send, send_welcome_email, get_reset_email
 User = get_user_model()
@@ -147,4 +148,20 @@ def reset_complete(request):
 
 #Anuthenticated user profile
 def change_passwprd(request):
+    
      return render(request, 'authentication/profile/change_password.html')
+
+def search_post(request):
+    try:
+        if request.method == 'POST':
+            searched = request.POST['searched']
+            lowercase = HomePost.objects.first()
+            print(lowercase)
+            home = HomePost.objects.filter(city_location__icontains=searched)
+           
+    except Exception as e:
+            print(e)
+    return render(request, 'post/searched_homes.html', {'homes' : home})
+
+     
+     
