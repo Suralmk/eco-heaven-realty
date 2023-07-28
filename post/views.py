@@ -30,6 +30,7 @@ def create_post(request):
                 image=image
             )
             Home.save()
+            messages.info(request, "Succesfully added a home")
         except Exception as e:
             print(e)
     return render(request, 'post/create_post.html')

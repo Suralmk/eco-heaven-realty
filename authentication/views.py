@@ -3,7 +3,6 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from django.contrib import messages
 from .models  import *
 from post.models import HomePost
-from django.contrib.auth.models import auth
 from .helpers import forget_password_email_send, send_welcome_email, get_reset_email
 User = get_user_model()
 
@@ -131,13 +130,6 @@ def create_password(request, token):
                 user_obj.save()
                 return redirect('reset-complete')
 
-            # user_obj = User.objects.get(email = email)
-            # print(user_obj)
-            # if User.objects.filter(password=new_password):
-            #     print('same password')
-            #     messages.info(request, "Enter diffrent password")
-            # else:
-            #      print("diffrent")
     except Exception as e:
          print(e)
     return render(request, 'authentication/reset/create_password.html')
