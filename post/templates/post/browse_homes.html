@@ -12,11 +12,12 @@
    <!-- {% for home in homes %}
     {{home}}
    {% endfor %} -->
-   <h1 style="display: flex; justify-content: center; align-items: top;">Searched Homes</h1>
-   <section  class="view-home" style="max-width: 1340px; margin: 0 auto; padding: 70px;">
+   <h1 style="display: flex; justify-content: center; align-items: top;">Browse Homes</h1>
+   <section class="view-home" style="max-width: 1340px; margin: 0 auto; padding: 70px;">
+    
    <div class="home-list-wrapper">
                 
-    {% for home in homes %}
+    {% for home in homepost %}
     <div class="home-detail">
             
         <div class="header-home-detail">
@@ -37,16 +38,16 @@
             </ul>
             <p class="home-view-year"><i class="ri-time-line"></i>2 years ago</p>
         </div>
-        <div class="home-image-view">
-            <img src="{{ home.image.url}}" alt="home image view" style="width: 100%; object-fit: cover; object-position: center; height: 280px;">
+        <div class="home-image-view" style="width: 100%; height: 300px;" >
+        <img src="{{ home.image.url}}" alt="home image view" style="width: 100%; object-fit: cover; object-position: center; height: 280px;">
         </div>
         <div class="bottom-home-detail">
-            <a href=""><p>{{home.city_location}},{{ home.home_location }}</p></a>
+            <a href=""><p>{{ home.home_location }}</p></a>
             <a  href="#"><i  class="ri-heart-line heart"></i></a>
         </div>
     </div>
     {% endfor %} 
 </div>
-</section>
+   </section>
 </body>
 </html>

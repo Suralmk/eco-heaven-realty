@@ -16,15 +16,100 @@
         <script defer src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     </head>
 <body>
+    <div class="form-header">
+        
+        <a href="/" style="display: flex; padding: 30px; background: rgb(22, 71, 22); color: white; font-size: 20px; text-decoration: none;">Back</a>
+        <h1>form for creating a post</h1>
+    </div>
     
-    <h1>form for creating a post</h1>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token%}
 
-        <div>
-            
+        <div class="post-form-container" style="padding: 5%; background: rgb(21, 94, 48); height: auto;">
+            <div class="input-groups">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city_location" placeholder="City location">
+            </div>
+
+            <div class="input-groups" >
+                <label for="home">Location</label>
+                <input type="text" id="home" name="home_location" placeholder="Home location">
+            </div>
+            <div class="input-groups">
+                <label for="option">Option</label>
+                <select name="home_type" id="option">
+                    <option value="For Sale">For Sale</option>
+                    <option value="For Rent">For Rent</option>
+                </select>
+            </div>
+    
+            <div class="input-groups">
+                <label for="bed">Bed Rooms</label>
+                <input type="number" id="bed" name="bed_rooms" placeholder="Bed rooms" style="appearance: none;">
+            </div>
+    
+            <div class="input-groups">
+                <label for="bath">Bath Rooms</label>
+                <input type="number" id="bath" name="bath_rooms" placeholder="Bath rooms" style="appearance: none;">
+            </div>
+    
+            <div class="input-groups">
+                <label for="sqft">Square feet</label>
+                <input type="number" id="sqft" name="sqft" placeholder="Square feet" style="appearance: none;">
+            </div>
+    
+            <div class="input-groups">
+                <label for="prce">Price</label>
+                <input type="number" id="price" name="price" placeholder="Price" style="appearance: none;">
+            </div>
+    
+            <div class="input-groups">
+                <label for="image">Main Image</label>
+                <input type="file" id="image" name="image" placeholder="Main image" style="appearance: none;">
+            </div>
         </div>
+
+        <button type="submit" class="schedule-send">Post Home</button>
     </form>
+
+    <style>
+        .form-header{
+            gap: 20px;
+            background: rgb(222, 222, 222);
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            align-items: center;
+            
+        }
+        h1{
+            text-transform: capitalize;
+        }
+        .input-groups{
+            margin: 20px 0;
+            width: 100%;
+        }
+        .input-groups label{
+            color: white;
+            margin-bottom: 15px;
+        }
+        .input-groups input, select{
+            border-radius: 0;
+            font-size: 15px;
+        }
+        button{
+            transition: transform 0.5s ease-out;
+            margin: 0;
+            font-weight: bolder;
+        }
+        button:hover{
+            background: rgb(22, 71, 22);
+            transform: translateY(-20px);
+        }
+        button:focus{
+            transform: translateY(-5px);
+        }
+    </style>
  
 </body>
 </html>

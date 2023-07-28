@@ -21,6 +21,11 @@ urlpatterns = [
     path('change-password/', views.change_passwprd, name='change_passwprd'),
 
     #creating post url, only for admin
-    path('post/', post_view.create_post, name='cretae_post'),
+    path('create-post/', post_view.create_post, name='cretae_post'),
+
+    # Searching a post every one can search
+    # no need to login, signup, be an admin
     path('searched-post/', views.search_post, name='searched-post'),
+
+    path('browse-homes/', post_view.browse_homes, name='browse-homes')
 ]

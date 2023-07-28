@@ -76,9 +76,9 @@
             </style>
             <div class="user-container">
                 <div class="auth-user-nav">
-                    <button type="button" >Browse Homes</button>
+                    <a href="/browse-homes"><button type="button" >Browse Homes</button></a>
                     {% if request.user.is_superuser %}
-                    <a id="add-homes" href="/post"><i class="ri-add-line"></i></a>
+                    <a id="add-homes" href="/create-post"><i class="ri-add-line"></i></a>
                     {% endif %}
                     <div class="user" style="display: flex ; gap: 10px;">
                         <a  style="display: block;"><i class="ri-account-circle-line"></i></a>
