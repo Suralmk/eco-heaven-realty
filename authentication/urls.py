@@ -3,6 +3,7 @@ from . import views
 
 
 from post import views as post_view
+from eco_staff import views as  staff_views
 
 
 urlpatterns = [
@@ -22,11 +23,14 @@ urlpatterns = [
 
     # only for admin
     path('admin-staff/', views.admin_staff, name='admin-staff'),
-    path('create-post/', post_view.create_post, name='cretae_post'),
+    # path('create-post/', post_view.create_post, name='cretae_post'),
 
     # Searching a post every one can search
     # no need to login, signup, be an admin
     path('searched-post/', views.search_post, name='searched-post'),
 
-    path('browse-homes/', post_view.browse_homes, name='browse-homes')
+    path('browse-homes/', post_view.browse_homes, name='browse-homes'),
+
+    # Staff Views
+    path('add-home/' ,staff_views.add_home, name='add-home'),
 ]

@@ -15,7 +15,7 @@
     <script defer src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     <script src="{% static 'js/base.js'%}" defer></script>
 </head>
-<body >
+<body style=" background: rgb(219, 219, 219);">
     <style>
         .admin-full-screen-container{
             display: flex;
@@ -23,6 +23,7 @@
             width: 100%;
             height: auto;
             background: rgb(219, 219, 219);
+            height: 100vh;
         }
         .admin-container{
             width: 100%;
@@ -30,12 +31,13 @@
             justify-content: space-between;
             max-width: 1350px;
             background: white;
+            height: max-content;
         }
         .left-wrapper{
             display: flex;
             flex-direction: column;
             justify-content: start;
-            height: 100%;
+            height: auto;
             background: rgb(107, 107, 107);
             width: 20%;
             padding: 0 5px;
@@ -100,6 +102,12 @@
         .close-warning{
             display: none;
         }
+        .add-home{
+            display: none;
+        }
+        .show-add-home{
+            display: block;
+        }
     </style>
     
     <div class="admin-full-screen-container" >
@@ -111,17 +119,17 @@
                 </div>
                 <nav>
                     <ul>
-                        <li> <button>Add Home</button></li>
+                        <li> <button id="add-home-btn">Add Home</button></li>
                         <li> <button>See Users</button></li>
                         <li> <button>Delete Users</button></li>
                         <li> <button>Delete Homes</button></li>
                         <li> <button>Add Admin</button></li>
-                        <li> <button>Back</button></li>
+                        <li><a href="/"><button>Back</button></a> </li>
                     </ul>
                 </nav>
 
             </div>
-            <div class="right-wrapper">
+            <div class="right-wrapper" style="height: 100%;">
                 <div class="admin-header">
                     <p>This page is only for those who have given a permission to authorize!</p>
                     <p>If you are not one of those please go back</p>
@@ -130,7 +138,7 @@
                 </div>
                 <div class="admin-forms" style="padding: 20px;">
 
-                    <section id="add-home">
+                    <section class="add-home">
                         <div class="section-form-title" style=" align-items: center; width: 100%; padding: 10px; justify-content: center; display: flex;  background: #b6b6b6;">
                             <h2>Add a new home</h2>
                         </div>
@@ -218,6 +226,24 @@
                             
                         </style>
                     </section>
+
+
+
+
+                    <section class="see-users">
+                        <div class="section-form-title" style=" align-items: center; width: 100%; padding: 10px; justify-content: center; display: flex;  background: #b6b6b6;">
+                            <h2>Registered Users</h2>
+                        </div>
+                        <!-- <div class="search-user">
+                            <input type="search">
+                        </div> -->
+                        <table>
+
+                        </table>
+                    </section>
+
+
+
                 </div>
             </div>
         </div>
@@ -230,6 +256,13 @@
             adminHeader.classList.add("close-warning")
         }
 
+        const addHomeBtn = document.querySelector("#add-home-btn")
+        const addHome = document.querySelector(".add-home")
+
+        addHomeBtn.addEventListener("click", showAddHome)
+        function showAddHome(){
+            addHome.classList.toggle("show-add-home")
+        }
     </script>
 </body>
 </html>
