@@ -157,9 +157,7 @@ def search_post(request):
 
 
 
-#Admin views
-def admin_staff(request):
-     return render (request, 'authentication/admin.html')
+
 
      
      

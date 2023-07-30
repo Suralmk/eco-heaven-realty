@@ -3,10 +3,13 @@ from .models import *
 from django.contrib.auth import get_user_model
 from django.contrib import messages
 from post.models import HomePost
-from authentication.templates.authentication import  *
 
 
 
+
+#Admin views
+def admin_staff(request):
+     return render (request,'eco_staff/admin.html')
 
 def add_home(request):
     if request.method == 'POST':
@@ -33,4 +36,4 @@ def add_home(request):
             messages.info(request, "Succesfully added a home")
         except Exception as e:
             print(e)
-    return render(request, 'authentication/admin.html')
+    return render(request, 'eco_staff/add_home.html')
