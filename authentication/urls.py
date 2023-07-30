@@ -20,7 +20,8 @@ urlpatterns = [
     #Authenticated user profile urls
     path('change-password/', views.change_passwprd, name='change_passwprd'),
 
-    #creating post url, only for admin
+    # only for admin
+    path('admin-staff/', views.admin_staff, name='admin-staff'),
     path('create-post/', post_view.create_post, name='cretae_post'),
 
     # Searching a post every one can search

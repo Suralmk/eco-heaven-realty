@@ -155,5 +155,11 @@ def search_post(request):
             print(e)
     return render(request, 'post/searched_homes.html', {'homes' : home})
 
+
+
+#Admin views
+def admin_staff(request):
+     return render (request, 'authentication/admin.html')
+
      
      
