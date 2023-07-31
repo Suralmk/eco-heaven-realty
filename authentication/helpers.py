@@ -49,5 +49,10 @@ def forget_password_email_send(recipient_list, token):
     message.content_subtype = 'html'
     message.send()
 
-def get_reset_email(email):
-    email
+import uuid
+def generate_token():
+    token = str(uuid.uuid4())
+    context = {
+        'admintoken' : token
+    }
+    return context

@@ -78,7 +78,7 @@
                 <div class="auth-user-nav">
                     <a href="/homes/"><button type="button" >Browse Home</button></a>
                     {% if request.user.is_superuser %}
-                    <a id="add-homes" href="/admin-staff"><i class="ri-settings-2-line"></i></a>
+                    <a id="add-homes" href="{% url 'admin-staff' %}"><i class="ri-settings-2-line"></i></a>
                     {% endif %}
                     <div class="user" style="display: flex ; gap: 10px;">
                         <a  style="display: block;"><i class="ri-account-circle-line"></i></a>
@@ -102,6 +102,7 @@
         
 
             <!--Authenticated user profile setting modal popups-->
+            
 
         <!-- change password -->
         <div class="change-passwprd-contain">
@@ -136,7 +137,7 @@
                     <i class="ri-close-fill"></i>
                 </div>
 
-                <h3 class="login-title">Change Password</h3>
+                <h3 class="login-title">Change Username</h3>
                 <form>
                     {% csrf_token %}
                     <div class="input-group">
@@ -200,7 +201,7 @@
             <img src="{% static '/src/base/image-2.png' %}" alt="image">  
             <div class="describe-text">
                 <p class="little-top-text">OUR MISSION</p>
-                    <h2>Building a Better Future with Eco-Friendly Homes.</h2>
+                    <h2>Building a Better Future with Eco-Friendly Homes. {{adminToken}}</h2>
                     <p class="text-description">The agency's mission is to provide clients with a selection of properties that meet high environmental standards, while also providing a comfortable and luxurious lifestyle.</p>
                     <a href="">Learn More<i class="ri-arrow-right-up-line"></i></a>
             </div>

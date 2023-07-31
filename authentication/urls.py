@@ -1,9 +1,7 @@
 from django.urls import path, include 
 from . import views
-
-
-from post import views as post_view
-
+from eco_staff.urls import urlpatterns as eco_url
+from eco_staff.views import admin_staff as  eco_admin
 
 urlpatterns = [
     path('', views.base, name='base'),
@@ -23,11 +21,6 @@ urlpatterns = [
     # Searching a post every one can search
     # no need to login, signup, be an admin
     path('searched-post/', views.search_post, name='searched-post'),
-
-    # only for admin
-    path('admin-staff/',include('eco_staff.urls')),
-
-    #post app urls
-    path('homes/', include('post.urls'), name='homes'),
+    path("admin-staff/", eco_admin, name='admin-staff')
     
 ]

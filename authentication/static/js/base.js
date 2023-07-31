@@ -76,12 +76,13 @@ if (typeof window !== 'undefined') {
    function showChangePassword(){
     changeUsernameContainer.classList.toggle("change-username-container")
    }
-  
+   
  // Close button
     const closeBtn = document.querySelector(".close-btn")
     closeBtn.addEventListener("click", closeChangePassword)
     function closeChangePassword(){
         changePasswordContainer.classList.remove("change-passwprd-container")
+        changeUsernameContainer.classList.remove("change-username-container")
     }
   //remove event listner when body element is clicked
   const body = document.getElementsByTagName('body')

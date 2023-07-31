@@ -213,15 +213,17 @@
                                     <th scope="col">Date Joined </th>
                                     <th scope="col">Last Active </th>
                                 </thead>
+                                {% for user in users|dictsort:"first_name"  %}
                                 <tbody>
-                                    <td>1</td>
-                                    <td>Surafel</td>
-                                    <td>Melaku</td>
-                                    <td>sura</td>
-                                    <td>email</td>
-                                    <td>yesterday</td>
-                                    <td>today</td>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ user.first_name }}</td>
+                                    <td>{{ user.last_name }}</td>
+                                    <td>{{ user.username }}</td>
+                                    <td>{{ user.email }}</td>
+                                    <td>{{ user.date_joined|date }}</td>
+                                    <td>{{ user.last_login }}</td>
                                 </tbody>
+                                {% endfor %}
                             </table>
 
                             <style>
