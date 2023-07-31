@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eco heaven, Admin page</title>
+    <title>Eco heaven, Delete home</title>
 
     <link rel="shortcut icon" type="image/svg" href="{% static 'src/base/logo-icon.svg'%}">
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
@@ -13,7 +14,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
     <script defer src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-    <script src="{% static 'js/base.js'%}" defer></script>
 </head>
 <body style=" background: rgb(219, 219, 219);">
     <style>
@@ -63,6 +63,10 @@
         .left-wrapper nav ul li {
             list-style-type: none;
         }
+        nav button i{
+            margin-right: 15px;
+            font-size: 20px;
+        }
         nav button{
             width: 100%;
             height: 35px;
@@ -78,10 +82,6 @@
         }
         nav li a{
             text-decoration: none;
-        }
-        nav button i{
-            margin-right: 15px;
-            font-size: 20px;
         }
         nav button:focus{
             background: black;
@@ -136,12 +136,13 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="/admin-staff/add-home"> <button> <i class="ri-home-3-fill"></i>Add Home</button></li></a>
+                        <li> <a href="/admin-staff/add-home"> <button> <i class="ri-home-3-fill"></i>Add Home</button></a></li>
                         <li> <a href="/admin-staff/users"> <button><i class="ri-eye-2-fill"></i>See Users</button></li></a>
                         <li> <a href="/admin-staff/delete-users"> <button><i class="ri-user-unfollow-fill"></i>Delete Users</button></li></a>
-                        <li> <a href="/admin-staff/delete-homes"> <button><i class="ri-delete-bin-2-line"></i>Delete Homes</button></li></a>
+                        <li> <a href=""><button style="background: #9e9e9e;"><i class="ri-delete-bin-2-line"></i>Delete Homes</button></li></a>
                         <li> <a href="/admin-staff/tour-requests"> <button><i class="ri-home-smile-2-line"></i>Tour Requests</button></li></a>
-                        <li><a href="/"><button>Back</button></a> </li>
+                        <li><a href="../"><button>Back</button></a> </li>
+                        <li><a href="/"><button>Home</button></a> </li>
                         <li > <div class="current-admin">
                             <h5>Current Adminstrator</h5>
                             <p>{{request.user}}</p>
@@ -157,142 +158,33 @@
                     <a href="/"><button >Back</button></a>
                     <button id="warn-close" >Close</button>
                 </div>
-                <div class="admin-role" > 
-                    <div class="section-form-title" >
-                        <h2>Admin Page</h2>
-                    </div>
-                    <div class="roles-wrapper">
+                <div class="admin-forms" style="padding: 20px;">
 
-                        <div class="roles">
-                            <h3 >Add Homes</h3>
-                            <p>What is need to add a new home?</p>
-                            <ol>
-                                <li>City location of the new home</li>
-                                <li>specific home location of the new home</li>
-                                <li>Bed rooms and bath rooms</li>
-                                <li>Price of the home in dollar</li>
-                                <li>Cover image of the new home</li>
-                            </ol>
+                    <section class="delete-home">
+                        <div class="section-form-title">
+                            <h2>Delete Home</h2>
                         </div>
 
 
-                        <div class="roles">
-                            <h3 >See Users</h3>
-                            <p>You can have access to information of the registered users</p>
-                            <ol>
-                                <li>You have acces to their names</li>
-                                <li>You have acces to their email adress</li>
-                                <li>You have access to their phone numbers if the have booked a tour</li>
-                                <li>You will not have acces to their passwords</li>
-                            </ol>
+                        <div class="homes-list">
+                            <table>
+
+                            </table>
                         </div>
+                    </section>
 
-
-                        <div class="roles">
-                            <h3 >Delete Users</h3>
-                            <p>To delete user form the database:</p>
-                            <ol>
-                                <li>City location of the new home</li>
-                                <li>specific home location of the new home</li>
-                                <li>Bed rooms and bath rooms</li>
-                                <li>Price of the home in dollar</li>
-                                <li>Cover image of the new home</li>
-                            </ol>
-                        </div>
-                                            
-                    </div>
-
-                    <hr>
-
-                    <div class="roles-wrapper roles-wrapper-2">
-
-                        <div class="roles">
-                            <h3 >Delete Homes</h3>
-                            <p>What is need to add a new home?</p>
-                            <ol>
-                                <li>City location of the new home</li>
-                                <li>specific home location of the new home</li>
-                                <li>Bed rooms and bath rooms</li>
-                                <li>Price of the home in dollar</li>
-                                <li>Cover image of the new home</li>
-                            </ol>
-                        </div>
-
-
-                        <div class="roles">
-                            <h3 >Tour Requests</h3>
-                            <p>You can have access to information of the registered users</p>
-                            <ol>
-                                <li>You have acces to their names</li>
-                                <li>You have acces to their email adress</li>
-                                <li>You have access to their phone numbers if the have booked a tour</li>
-                                <li>You will not have acces to their passwords</li>
-                            </ol>
-                        </div>
-
-
-                        <div class="roles">
-                            <h3 >Add Homes</h3>
-                            <p>What is need to add a new home?</p>
-                            <ol>
-                                <li>City location of the new home</li>
-                                <li>specific home location of the new home</li>
-                                <li>Bed rooms and bath rooms</li>
-                                <li>Price of the home in dollar</li>
-                                <li>Cover image of the new home</li>
-                            </ol>
-                        </div>
-                                            
-                    </div>
                 </div>
-                <hr>
-
             </div>
         </div>
     </div>
     <style>
-        .roles-wrapper-2{
-           margin-top: 0;
-           padding-top: 0;
-        }
-        .section-form-title{
+          .section-form-title{
             align-items: center;
             width: 100%;
             padding: 10px;
             justify-content: center;
             display: flex;
             background: #b6b6b6;
-        }
-        .roles-wrapper{
-            margin-top: 50px;
-            padding: 50px;
-            height: auto; 
-            width: 100%;
-            display: flex;
-            gap: 25px;
-        }
-        .roles-wrapper-2{
-           margin-top: 0;
-        }
-        .roles{
-            padding: 10px;
-            height: auto; 
-            width: 30%;
-            background-color: #e3e3e3;
-            display: flex;
-            flex-direction: column;
-            align-items: start;
-        }
-        .roles h3{
-            margin: 15px 0;
-        }
-        .roles ol{
-            margin-top:10px;
-            margin-left: 10px;
-            font-size: small;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
         }
     </style>
     <script>
@@ -302,6 +194,7 @@
         function closeWarning() {
             adminHeader.classList.add("close-warning")
         }
+
     </script>
 </body>
 </html>

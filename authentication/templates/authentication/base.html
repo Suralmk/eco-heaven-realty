@@ -76,7 +76,7 @@
             </style>
             <div class="user-container">
                 <div class="auth-user-nav">
-                    <a href="/homes"><button type="button" >Browse Home</button></a>
+                    <a href="/homes/"><button type="button" >Browse Home</button></a>
                     {% if request.user.is_superuser %}
                     <a id="add-homes" href="/admin-staff"><i class="ri-settings-2-line"></i></a>
                     {% endif %}
@@ -92,7 +92,7 @@
                     
                     <a href="">Change Email</a>
                     <hr>
-                    <a href="">Change Username</a>
+                    <a  id="change-username" style="cursor: pointer;" >Change Username</a>
                     <hr>
                     <a id="change-password" style="cursor: pointer;">Change Password</a>
                     <hr>
@@ -126,7 +126,33 @@
                 </form>
             </div>
         </div>
-            {% endif %}
+
+
+
+        <div class="change-username-contain">
+            
+            <div class="change-container">
+                <div class="close-btn">
+                    <i class="ri-close-fill"></i>
+                </div>
+
+                <h3 class="login-title">Change Password</h3>
+                <form>
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <label> New Username</label>
+                        <input type="text" name="new_username" id="username" placeholder="New Username">
+                    </div>
+                    <div class="input-group">
+                        <label>Current password</label>
+                        <input type="pastsword" name="current_password" id="password" placeholder="Current Password">
+                    </div>
+                    <button type="submit" class="change-btn">Change Password</button>
+                </form>
+            </div>
+        </div>
+
+        {% endif %}
         </div>
 
         <section class="hero-container">

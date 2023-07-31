@@ -8,6 +8,7 @@ from post.models import HomePost
 
 
 #Admin views
+#each one of those views should have a token in their url
 def admin_staff(request):
      return render (request,'eco_staff/admin.html')
 
@@ -37,3 +38,15 @@ def add_home(request):
         except Exception as e:
             print(e)
     return render(request, 'eco_staff/add_home.html')
+
+def see_users(request):
+    return render(request, 'eco_staff/registered_users.html')
+
+def delete_users(request):
+    return render(request, 'eco_staff/delete_users.html' )
+
+def delete_homes(request):
+    return render(request, 'eco_staff/delete_homes.html' )
+
+def tour_requests(request):
+    return render(request, 'eco_staff/tour_requests.html' )

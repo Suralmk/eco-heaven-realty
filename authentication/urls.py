@@ -26,8 +26,8 @@ urlpatterns = [
 
     # only for admin
     path('admin-staff/',include('eco_staff.urls')),
-    # path('create-post/', post_view.create_post, name='cretae_post'),
 
+    #post app urls
     path('homes/', include('post.urls'), name='homes'),
     
 ]

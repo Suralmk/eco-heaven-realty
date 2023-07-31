@@ -67,9 +67,16 @@ if (typeof window !== 'undefined') {
  changePassword.addEventListener("click", showChangePassword)
   function showChangePassword(){
     changePasswordContainer.classList.toggle("change-passwprd-container")
-    changePasswordContainer.remo
   }
  
+  //change username
+  const changeUsername = document.querySelector("#change-username");
+  const changeUsernameContainer = document.querySelector(".change-username-contain")
+  changeUsername.addEventListener("click", showChangePassword)
+   function showChangePassword(){
+    changeUsernameContainer.classList.toggle("change-username-container")
+   }
+  
  // Close button
     const closeBtn = document.querySelector(".close-btn")
     closeBtn.addEventListener("click", closeChangePassword)
