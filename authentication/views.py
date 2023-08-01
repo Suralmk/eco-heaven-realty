@@ -45,7 +45,7 @@ def signup(request):
         password = request.POST['password']
 
         if User.objects.filter(username=username).exists():
-            messages.info(request, 'Please check ,Username already exist')
+            messages.info(request, 'Please change ,Username already exist')
             return redirect("signup")
         elif User.objects.filter(email=email).exists():
             messages.info(request, 'Email was already Taken !')

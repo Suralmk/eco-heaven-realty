@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from .models import *
-from django.contrib.auth import get_user_model
 from django.contrib import messages
 from post.models import HomePost
 from django.contrib.auth import get_user_model
@@ -11,13 +10,13 @@ User = get_user_model()
 #Admin views
 #each one of those views should have a token in their url
 def admin_staff(request):
-     if not request.user.is_superuser:
+     if not request.user.is_staff:
          return redirect('base')
      else:
         return render (request,'eco_staff/admin.html')
 
 def add_home(request):
-    if not request.user.is_superuser:
+    if not request.user.is_staff:
          return redirect('base')
     else:
 
@@ -48,41 +47,40 @@ def add_home(request):
         return render(request, 'eco_staff/add_home.html')
 
 def see_users(request):
-    if not request.user.is_superuser:
+    if not request.user.is_staff:
          return redirect('base')
-    else:
-       users = User.objects.all()
-       print(users)
-       context = {
-            'users': users
-        }
-       return render(request, 'eco_staff/registered_users.html', context)
-def search_user(request):
-    if not request.user.is_superuser:
-         return redirect('base')
-    else:
-       if request.method == 'POST':
+   
+    users = User.objects.all()
+    
+    if request.method == 'POST':
             searched_user = request.POST['searched']
             print(searched_user)
             try:
-               searched =  User.objects.filter(username__icontains = searched_user)
+               searched =  users.filter(username__icontains=searched_user).values()
+               print(searched)
             except Exception as e:
-                print(e)
-       return render(request, 'eco_staff/registered_users.html', {'searched' : searched})
+                print('no')
+    context = {
+            'users': users,
+            'searched_user': searched
+        }
+    return render(request, 'eco_staff/registered_users.html', context)
+    
+    
 def delete_users(request):
-    if not request.user.is_superuser:
+    if not request.user.is_staff:
          return redirect('base')
     else:
         return render(request, 'eco_staff/delete_users.html' )
 
 def delete_homes(request):
-    if not request.user.is_superuser:
+    if not request.user.is_staff:
          return redirect('base')
     else:
         return render(request, 'eco_staff/delete_homes.html' )
 
 def tour_requests(request):
-    if not request.user.is_superuser:
+    if not request.user.is_staff:
          return redirect('base')
     else:
         return render(request, 'eco_staff/tour_requests.html' )

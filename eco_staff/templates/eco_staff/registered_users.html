@@ -126,7 +126,12 @@
             flex-direction: column;
             gap: 10px;
         }
-        
+        .search-result-user{
+            padding: 0.5em;
+            width: 100%;
+            background: #2b2a2a;
+            color: white;
+        }
     </style>
     
     <div class="admin-full-screen-container" >
@@ -167,7 +172,7 @@
                             <h2>Registered Users</h2>
                         </div>
                         <div class="search-user">
-                            <form action="">{% csrf_token%}
+                            <form action="" method="post">{% csrf_token%}
                                 <div class="user-search">
                                     <label for="name"></label>
                                     <input type="search" id="searched" name="searched" placeholder="Enter username or Name" autofocus>
@@ -176,6 +181,51 @@
                                 
                             </form>
                         </div>
+                        
+                        <div class="searched-table" style="width: 100%; height: auto; margin-bottom: 20px;">
+
+                            {% for message in messages %}
+                            <div
+                              class=""
+                              style="width: 80%;height: auto;padding: 20px;justify-content: center;display: flex;flex-direction: column;background-color: rgb(235, 42, 42); ">
+                              
+                              <p
+                                style="text-align: center;color: white; height: auto; width: 100%;  font-size: 15px; background-color: rgb(235, 42, 42);" >
+                                {{message}}
+                              </p>
+                              
+                            </div>
+                            {% endfor %}
+                            <table>
+                                    {% for x in searched_user  %}
+                                    {% if forloop.first %}
+                                    <h3 class="search-result-user">
+                                        Search Result
+                                    </h3>
+                                    <thead>
+                                        <th scope="col">No</th>
+                                        <th scope="col">First Name</th>
+                                        <th scope="col">Last Name</th>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">Email Adress</th>
+                                        <th scope="col">Date Joined </th>
+                                        <th scope="col">Last Active </th>
+                                    </thead>
+                                    {% endif %}
+                                    <tbody>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td>{{ x.first_name }}</td>
+                                        <td>{{ x.last_name }}</td>
+                                        <td>{{ x.username }}</td>
+                                        <td>{{ x.email }}</td>
+                                        <td>{{ x.date_joined|date }}</td>
+                                        <td>{{ x.last_login }}</td>
+                                    </tbody>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                                
+                               
                         <style>
                             .user-search{
                                 width: 100%;
@@ -203,6 +253,9 @@
                             }
                         </style>
                         <div class="homes-list">
+                            
+                                
+                            
                             <table>
                                 <thead>
                                     <th scope="col">No</th>
